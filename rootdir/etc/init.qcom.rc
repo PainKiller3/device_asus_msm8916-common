@@ -794,7 +794,7 @@ service qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
-    writepid /dev/cpuset/system-background/tasks
+   writepid /dev/cpuset/system-background/tasks
 
 service perfd /vendor/bin/perfd
     class late_start
@@ -843,11 +843,11 @@ service wcnss-service /vendor/bin/wcnss_service
     group system wifi radio
     oneshot
 
-service qcom-power /system/vendor/bin/init.qcom.power.sh
+service qcom-power /vendor/bin/init.qcom.power.sh
     disabled
     oneshot
 
-service qcom-factory /system/vendor/bin/init.qcom.factory.sh
+service qcom-factory /vendor/bin/init.qcom.factory.sh
     disabled
     oneshot
 
@@ -876,9 +876,3 @@ on property:sys.boot_completed=1
 on property:vold.decrypt=trigger_restart_framework
     stop camera-provider-2-4
     start camera-provider-2-4
-
-# This fixes broken data connection on netmgrd crash
-on property:sys.boot_completed=1
-    restart ril-daemon
-    restart ril-daemon2
-    restart netmgrd
