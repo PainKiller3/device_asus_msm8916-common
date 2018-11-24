@@ -291,6 +291,7 @@ PRODUCT_PACKAGES += \
 
 # Telephony packages
 PRODUCT_PACKAGES += \
+    qti-telephony-common \
     telephony-ext \
     ims-ext-common
 
